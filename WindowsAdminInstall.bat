@@ -1,22 +1,22 @@
 @echo off
 ECHO Installing and configuring chocolatey :) 
-#  install chocolatey via CMD - need .NET 4+ Win7+/SVR2003+ PSv2+ - https://chocolatey.org/install
+::  install chocolatey via CMD - need .NET 4+ Win7+/SVR2003+ PSv2+ - https://chocolatey.org/install
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-#  this is a feature to ignore all prompts from choco 
+::  this is a feature to ignore all prompts from choco 
 choco feature enable -n=allowGlobalConfirmation
-#  this installs a chocolatey extension installer
+::  this installs a chocolatey extension installer
 choco install chocolatey-core.extension 
 
 ECHO Installing prep software
-#  installs an opensource pre-built OpenJDK binary https://adoptopenjdk.net/about.html
+::  installs an opensource pre-built OpenJDK binary https://adoptopenjdk.net/about.html
 choco install adoptopenjdk8jre
-#  This command installs all Visual Studio c++ redistributables 
+::  This command installs all Visual Studio c++ redistributables 
 choco install vcredist-all
-#  This command installs and updates powershell
+::  This command installs and updates powershell
 choco install powershell
-# This is an auto updater for chocolatey
+:: This is an auto updater for chocolatey
 choco install chocolateypackageupdater
-# This is a graphical interface for chocolatey
+:: This is a graphical interface for chocolatey
 choco install chocolateygui
 choco install googlechrome
 choco install firefox
@@ -54,7 +54,6 @@ choco install hexchat
 choco install angryip 
 choco install patch-my-pc 
 choco install gns3 
-choco install vmwarevsphereclient 
 choco install tftpd32 
 choco install wget
 choco install terminals 
@@ -70,8 +69,7 @@ choco install bitwarden
 choco install docker-desktop
 choco install kubernetes-cli 
 choco install grammarly 
-choco install grammarly-chrome 
-choco install imgburn 
+choco install grammarly-chrome  
 choco install mbsa 
 choco install pingplotter 
 choco install openvpn 
@@ -82,17 +80,15 @@ choco install ubiquiti-unifi-controller
 choco install iperf3 
 choco install autohotkey.portable 
 
-#  Check for upgrades
+::  Check for upgrades
 choco upgrade 
 
 ECHO Starting windows configs 
-#  Checks for Windows updates, resetauthorization allows you to check more than once an hour
-#  detectnow checks for missing updates, updatenow downloads and install missing updates
+::  Checks for Windows updates, resetauthorization allows you to check more than once an hour
+::  detectnow checks for missing updates, updatenow downloads and install missing updates
 wuauclt.exe /resetauthorization /detectnow /updatenow
-#  Checks for windows updates post Windows 10/1603
+::  Checks for windows updates post Windows 10/1603
 UsoClient.exe startscan
-#  Install .NET framework on windows 10 
-DISM.EXE /Online /Add-Capability /CapabilityName:NetFx3~~~~
 
 PAUSE
  
