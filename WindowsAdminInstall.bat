@@ -15,7 +15,7 @@ choco install vcredist-all
 #  This command installs and updates powershell
 choco install powershell
 # This is an auto updater for chocolatey
-chocoinstall chocolateypackageupdater
+choco install chocolateypackageupdater
 # This is a graphical interface for chocolatey
 choco install chocolateygui
 choco install googlechrome
